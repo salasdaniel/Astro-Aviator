@@ -1,0 +1,90 @@
+body{
+    flex-direction: column;
+    background-image: url(/assets/cielo-estrellado.jpg);
+    background-size: contain;
+}
+.instructions{
+    margin: 50px;
+}
+.key{
+    box-sizing: border-box;
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    background-color: #2f2e30;
+    color: white;
+    box-shadow: white -2px 2px 0 0px;
+    margin: 10px;
+}
+.keys{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.space{
+    box-sizing: border-box;
+    width: 450px;
+    height: 90px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    background-color: #2f2e30;
+    color: white;
+    box-shadow: white -2px 2px 0 0px;
+    margin: 10px;
+    margin-right: 20px;
+}
+.right{
+    box-sizing: border-box;
+    width: 90px;
+    height: 90px;
+    border-radius: 70px 0px 0px 0px;
+    background-color: #bd3038;
+    margin: 5px;
+    box-shadow: white -2px 2px 0 0px;
+}
+.left{
+    box-sizing: border-box;
+    width: 90px;
+    height: 90px;
+    border-radius: 0px 70px 0px 0px;
+    
+    background-color: #2f2e30;
+    box-shadow: white -2px 2px 0 0px;
+    margin: 5px;
+}
+.mouse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.keys>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.kText{
+    padding: 10px;
+    color: white;
+}
+
+header>div{
+    font-size: 100px;
+    padding: 50px;
+    color: white;
+}
+a>svg{
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    fill: white;
+}

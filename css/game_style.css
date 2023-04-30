@@ -1,0 +1,691 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Righteous', cursive !important;
+
+}
+
+body{
+    background-color: #ede7d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor{
+    width: 920px;
+    height: 500px;
+    position: relative;
+    background-image: url(/assets/41500.jpg);
+    background-position: center;
+    background-size: contain;
+    overflow: hidden;
+}
+
+.player{
+    width: 60px;
+    height: 100px;
+    bottom: 115px;
+    left: 25px;
+    position: absolute;
+    background-image: url(/assets/sprite/opp-assets/sprites/humans/traveler/spr_m_traveler_walk_anim.gif);
+    background-size: 100px;
+    background-position-x: -20px;
+    z-index: 2;
+    
+} 
+.player-corriendo{
+    background-image: url(/assets/sprite/opp-assets/sprites/humans/traveler/spr_m_traveler_run_anim.gif);
+
+}
+.player-saltando{
+
+    background-image: url(/assets/sprite/opp-assets/sprites/humans/traveler/spr_m_traveler_jump_1up_anim.gif);
+ 
+
+}
+.player-cayendo{
+   
+    background-image: url(/assets/sprite/opp-assets/sprites/humans/traveler/spr_m_traveler_jump_3down_anim.gif);
+
+}
+.player-tocandosuelo{
+   
+    background-image: url(/assets/sprite/opp-assets/sprites/humans/traveler/spr_m_traveler_jump_4land_anim.gif);
+
+}
+.player-ensuelo{
+   
+    background-image: url(/assets/sprite/opp-assets/sprites/humans/traveler/spr_m_traveler_slide_anim.gif);
+
+}
+.player-parado{
+   
+    background-image: url(/assets/sprite/opp-assets/sprites/humans/traveler/spr_m_traveler_idle_anim.gif);
+
+}
+.suelo{
+    width: 20000000000000000%;
+    height: 115px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(/assets/suelo.png);background-repeat: repeat;
+    background-size: contain;
+    
+}
+.score{
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    text-align: right;
+    font-size: 50px;
+    color: white;
+    font-family: sans-serif;
+
+}
+.obstaculo{
+    width: 100px;
+    height: 100px; 
+    background: url(/assets/Sin\ título-1.png);
+    background-size: 270%;
+    background-position-x: -11px;
+    background-position-y: -10px;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 115px;
+    right: 25px;
+    z-index: 2;
+    animation: golemMovimiento 1.5s steps(2) infinite; 
+}
+
+.gameOver{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: white;
+    animation: gameOver 2s linear ;
+    background-color:rgba(0, 0, 0, 0.7);
+    z-index: 5;
+    
+}
+
+.gameOverFont{
+    animation: gameOverFont 2s linear ;
+}
+
+@keyframes golemMovimiento {
+    from{
+        background-position-x: 0;
+    }
+   
+    to{
+        background-position-x: -280px;
+    }
+    
+}
+@keyframes gameOver {
+    0%{
+        background-color: transparent;
+    }
+    50%{
+        background-color:rgba(0, 0, 0, 0.35)
+    }
+    100%{
+        background-color:rgba(0, 0, 0, 0.7)
+    }
+}
+
+@keyframes gameOverFont {
+    0%{
+        
+        color: transparent;
+    }
+    50%{
+        
+        color: rgb(255, 255, 255, 0.5);
+    }
+    100%{
+        
+        color:rgb(255, 255, 255);
+    }
+}
+.botones{
+    display: flex;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    align-items: center;
+    justify-content: center;
+    fill: #ffffff;
+    box-sizing: border-box;
+    z-index: 4;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    box-sizing: content-box;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: ease 1s;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: black;
+    fill: white;
+    transition: ease 2s;
+}
+svg{
+    width: 20px;
+}
+.paused{
+    position: absolute;
+    font-size: 50px;
+    right: 40%;
+    top: 42%;
+    color: white;
+}
+.boss{
+    width: 600px;
+    height: 350px;
+    position: absolute;
+    bottom: 115px;
+    right: -120px;
+    z-index: 2;
+    background: url(/assets/gifs/01-d-idle-unscreen.gif);
+    background-position: top;
+    background-position: bottom;
+    background-size:  700px 500px;
+    background-repeat: no-repeat;
+    
+   
+}
+.intBoss{
+    animation: boss 4s ease;
+}
+@keyframes boss{
+    from{
+        background: none;
+    }
+    to{
+        background: url(/assets/gifs/01-d-idle-unscreen.gif);
+        background-position: top;
+        background-position: bottom;
+        background-size:  700px 500px;
+        background-repeat: no-repeat;
+    }
+}
+
+.boss-atacando{
+    
+    background-size:  700px 500px;
+    background-position: top;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    animation: atacando 1s step-end infinite;
+}
+   
+@keyframes atacando {
+    0%{
+        background: url(/assets/03_demon_cleave/demon_cleave_3.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    15%{
+        background: url(/assets/03_demon_cleave/demon_cleave_5.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    30%{
+        background: url(/assets/03_demon_cleave/demon_cleave_7.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    45%{
+        background: url(/assets/03_demon_cleave/demon_cleave_9.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    60%{
+        background: url(/assets/03_demon_cleave/demon_cleave_10.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    75%{
+        background: url(/assets/03_demon_cleave/demon_cleave_11.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    90%{
+        background: url(/assets/03_demon_cleave/demon_cleave_13.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    100%{
+        background: url(/assets/03_demon_cleave/demon_cleave_14.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+}
+
+.boss-recibiendo{
+    background: url(/assets/gifs/01-d-idle-unscreen.gif);
+    background-size:  700px 500px;
+    background-position: top;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    animation: recibiendo 0.5s step-end;
+}
+
+@keyframes recibiendo {
+    0%{
+        background: url(/assets/04_demon_take_hit/demon_take_hit_1.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    35%{
+        background: url(/assets/04_demon_take_hit/demon_take_hit_2.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    70%{
+        background: url(/assets/04_demon_take_hit/demon_take_hit_4.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    100%{
+        background: url(/assets/04_demon_take_hit/demon_take_hit_5.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    
+}
+.boss-muriendo{
+
+    width: 600px;
+    height: 350px;
+    position: absolute;
+    bottom: 115px;
+    right: -120px;
+    z-index: 2;
+    background-size:  700px 500px;
+    background-position: top;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    animation: muriendo 2s step-end;
+}
+
+@keyframes muriendo {
+    0%{
+        background: url(/assets/05_demon_death/demon_death_1.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    5%{
+        background: url(/assets/05_demon_death/demon_death_2.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    10%{
+        background: url(/assets/05_demon_death/demon_death_3.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    15%{
+        background: url(/assets/05_demon_death/demon_death_4.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    20%{
+        background: url(/assets/05_demon_death/demon_death_5.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    25%{
+        background: url(/assets/05_demon_death/demon_death_6.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    30%{
+        background: url(/assets/05_demon_death/demon_death_7.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    35%{
+        background: url(/assets/05_demon_death/demon_death_8.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    40%{
+        background: url(/assets/05_demon_death/demon_death_9.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    45%{
+        background: url(/assets/05_demon_death/demon_death_10.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    50%{
+        background: url(/assets/05_demon_death/demon_death_11.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    55%{
+        background: url(/assets/05_demon_death/demon_death_12.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    60%{
+        background: url(/assets/05_demon_death/demon_death_13.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    65%{
+        background: url(/assets/05_demon_death/demon_death_14.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    70%{
+        background: url(/assets/05_demon_death/demon_death_15.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    75%{
+        background: url(/assets/03_demon_cleave/demon_cleave_16.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    80%{
+        background: url(/assets/03_demon_cleave/demon_cleave_17.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    85%{
+        background: url(/assets/03_demon_cleave/demon_cleave_18.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    90%{
+        background: url(/assets/03_demon_cleave/demon_cleave_19.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    95%{
+        background: url(/assets/03_demon_cleave/demon_cleave_20.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+    100%{
+        background: url(/assets/03_demon_cleave/demon_cleave_21.png);
+        background-size:  700px 500px;
+        background-position: top;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+    }
+}
+
+
+.attack{
+    width: 70px;
+    height: 125px;
+    position: absolute;
+    bottom: 115px;
+    left: 400px;
+    background: url(/assets/Smoke/Smoke1.png);
+    background-size: 150px 200px;
+    background-repeat: no-repeat;
+    background-position:bottom;
+    background-position-x: -35px;
+    transform: scaleX(-1);    
+    animation: fireAnimation 0.5s step-end infinite;
+}
+
+@keyframes fireAnimation{
+    0%{
+        background: url(/assets/Smoke/Smoke1.png);
+        background-size: 150px 200px;
+        background-repeat: no-repeat;
+        background-position:bottom;
+        background-position-x: -35px;
+        transform: scaleX(-1);
+    }
+    2%{
+        background: url(/assets/Smoke/Smoke2.png);
+        background-size: 150px 200px;
+        background-repeat: no-repeat;
+        background-position:bottom;
+        background-position-x: -35px;
+        transform: scaleX(-1);
+    }
+    40%{
+        background: url(/assets/Smoke/Smoke3.png);
+        background-size: 150px 200px;
+        background-repeat: no-repeat;
+        background-position:bottom;
+        background-position-x: -35px;
+        transform: scaleX(-1);
+    }
+    60%{
+        background: url(/assets/Smoke/Smoke4.png);
+        background-size: 150px 200px;
+        background-repeat: no-repeat;
+        background-position:bottom;
+        background-position-x: -35px;
+        transform: scaleX(-1);
+    }
+    80%{
+        background: url(/assets/Smoke/Smoke5.png);
+        background-size: 150px 200px;
+        background-repeat: no-repeat;
+        background-position:bottom;
+        background-position-x: -35px;
+        transform: scaleX(-1);
+    }
+    100%{ 
+        background: url(/assets/Smoke/Smoke6.png);
+        background-size: 150px 200px;
+        background-repeat: no-repeat;
+        background-position:bottom;
+        background-position-x: -35px;
+        transform: scaleX(-1);
+    }
+}
+
+.bossHeart{
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 0, 0, 0.155);
+    border-radius: 50%;
+    position: absolute;
+    right: 140px;
+    top: 170px;
+    z-index: 4;
+    animation: bossHeart 1s ease infinite;
+    transform-origin: center
+}
+.bossHeart:hover{
+    cursor: pointer;
+    background-color: rgba(255, 0, 0, 0.309);
+    transition: ease 0.1s;
+}
+.bossHeart:active{
+    background-color: rgba(255, 0, 0, 0.394);
+    transition: ease 0.1s;
+}
+
+@keyframes bossHeart{
+    from { transform: none; }
+    50% { transform: scale(1.2); }
+    to { transform: none; }
+}
+
+.bossPoints{
+ 
+    position: absolute;
+    right: 95px;
+    bottom: 80px;
+    z-index: 4;
+    
+    animation: bossPoints 1s ease;
+    font-size: 60px;
+    color: white;
+    
+    
+}
+.bossLifeText{
+    position: absolute;
+    right: 100px;
+    bottom: 60px;
+    z-index: 4;
+    color: white;
+    font-size: 20px;
+    animation: bossPoints 3s ease;
+    
+}
+@keyframes bossPoints {
+    from{
+        color: transparent;
+    }
+    to{
+        color: white;
+    }
+    
+}
+
+.win{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: white;
+    background-color:rgba(0, 0, 0, 0.7);
+    z-index: 5;
+    transform-origin: center;
+    animation: gameOver 2s linear ;
+    
+}
+
+.winFont{
+    animation: winFont 2s ease infinite ;
+}
+@keyframes winFont {
+    from { transform: none; }
+    50% { transform: scale(1.2); }
+    to { transform: none; }
+}
