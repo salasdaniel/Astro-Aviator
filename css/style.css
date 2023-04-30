@@ -88,3 +88,12 @@ a>svg{
     padding: 10px;
     fill: white;
 }
+a>svg:hover{
+    cursor: pointer;
+    fill: #bd3038;
+    transition: ease 1s;
+}
+a>svg:active{
+    fill: white;
+    transition: ease 1s;
+}
