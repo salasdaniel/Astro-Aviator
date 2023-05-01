@@ -1,3 +1,8 @@
+window.onload = ()=>{
+    document.querySelector('.lds-roller').style.display = "none"
+    document.querySelector('.hidden').classList.remove('hidden')
+}
+
 let time = new Date()
 
 let deltaTime = 0;
@@ -84,7 +89,7 @@ let gameOver;
 let boss;
 
 let ataquePosX = 400;
-let scoreToBoss = 10;
+let scoreToBoss = 00;
 let bossLife = 1000;
 let bossCreated = false;
 let ataques = []
@@ -267,7 +272,7 @@ function MoverObstaculos(){
 
         }else{
 
-            obstaculos[i].posX -= CalcularDesplazamiento();
+            obstaculos[i].posX -= 10;
             obstaculos[i].style.left = obstaculos[i].posX+"px";
 
         }
@@ -286,10 +291,10 @@ function GanarPuntos(){
 
 function DetectarColision(){
 
-    obstaculoPosY = 115
+    
 
     for( let i = 0; i <obstaculos.length; i++){
-
+        obstaculoPosY = 115
         let pX = Math.floor(player.getBoundingClientRect().x) 
         let aX = Math.floor(obstaculos[i].getBoundingClientRect().x) -5
         
@@ -310,7 +315,7 @@ function GameOver(){
     contenedor.appendChild(textoGameOver)
 
     setTimeout(()=>{
-
+        stopAnimation()
         fraseGameOver = document.createElement('span')
         fraseGameOver.classList.add('gameOverFont')
         fraseGameOver.innerText = 'GAME OVER'
