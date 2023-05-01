@@ -609,6 +609,9 @@ svg{
     position: absolute;
     right: 140px;
     top: 170px;
+    color: white;
+    text-align: center;
+    font-size: 10px;
     z-index: 4;
     animation: bossHeart 1s ease infinite;
     transform-origin: center
